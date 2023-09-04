@@ -1,0 +1,42 @@
+use("platzi_store");
+
+db.orders.find({ user_id: ObjectId("64f5f57cdc129910062987ce") }).count();
+
+db.orders.find({ user_id: ObjectId("64f5f57cdc129910062987ce") });
+db.users.findOne({ _id: ObjectId("64f5f57cdc129910062987ce") });
+
+//Obtener usuario de orden de compra
+db.orders.aggregate([
+  {
+    $match: {
+      _id: ObjectId("64f5ff5835a60e293b6d3226"),
+    },
+  },
+  {
+    $lookup: {
+      from: "users",
+      localField: "user_id",
+      foreignField: "_id",
+      as: "user",
+    },
+  },
+]);
+
+// Obtener ordenes de compra de un usuario
+db.users.aggregate([
+  {
+    $match: {
+      _id: ObjectId("64f5f57cdc129910062987ce"),
+    }
+  },
+  {
+    $lookup: {
+      from: 'orders',
+      localField: '_id',
+      foreignField: 'user_id',
+      as: 'orders'
+    }
+  }
+])
+
+

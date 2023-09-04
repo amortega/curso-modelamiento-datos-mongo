@@ -1,0 +1,13 @@
+use("platzi_store");
+
+//64f4ac8d3473cfba4cf203fc - product
+//64f5f7f9ddd2a039590776e4 - store
+
+db.products.updateOne(
+  { _id: ObjectId("64f4ac8d3473cfba4cf203fc") },
+  {
+    $set: {
+      stores_ids: [ObjectId("64f5f7f9ddd2a039590776e4")],
+    },
+  }
+);

@@ -1,0 +1,17 @@
+use("platzi_store");
+
+//64f4ac8d3473cfba4cf203fc
+//64f6044ace116708d53791de
+//64f6044ace116708d53791df
+//64f6044ace116708d53791e0
+
+db.stores.insertMany([
+  {
+    name: "Store 1",
+    products_ids: [ObjectId("64f4ac8d3473cfba4cf203fc"), ObjectId("64f6044ace116708d53791de")],
+  },
+  {
+    name: "Store 2",
+    products_ids: [ObjectId("64f6044ace116708d53791df"), ObjectId("64f6044ace116708d53791e0"), ObjectId("64f4ac8d3473cfba4cf203fc"), ObjectId("64f6044ace116708d53791de")],
+  },
+]);

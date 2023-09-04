@@ -1,0 +1,9 @@
+use("platzi_store");
+
+//64f636ac807e0610ae5308d9
+db.orders.insertOne({
+  user_id: ObjectId("64f5f57cdc129910062987ce"),
+  date: "2020-12-12",
+  total: 0,
+  items: [],
+});
